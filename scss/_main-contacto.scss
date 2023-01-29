@@ -1,0 +1,103 @@
+.cont-main-contacto {
+    height: 100%;
+    .titulo-catalogo {
+        width: 100vw;
+        h2 {
+            text-align: center;
+            background-color: $azul-oscuro;
+            @include fuente($blanco, 2rem);
+            padding: 0.5rem;
+        }
+    }
+
+    .cont-contacto-principal {
+        @include flex-d(column);
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        .cont-contacto {
+            background-image:url(../assets/imagenes/background/bg-contactos.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            @include flex-d(row);
+            align-items: center;
+            padding: 3rem;
+            color: $blanco;
+            width: 65%;
+            .cont-info-contacto {
+                width: 100%;
+                h2 {
+                    font-size: 3rem;
+                    padding:1rem 0px;
+                }
+                p {
+                    line-height: 1.4;
+                    padding-bottom:1rem;
+                    font-size: 20px;
+                    width: 70%;
+                }
+                .email-contacto,.cel-contacto {
+                    display: flex;
+                    align-items: center;
+                }
+            }
+            .cont-formulario-contacto {
+                @include flex-d(column);
+                width: 100%;
+                input, textarea {
+                    border: none;
+                    padding: 1rem;
+                }
+                input {
+                    margin: 0.5rem 0px;
+                    height: 2.5rem;
+                }
+                textarea {
+                    margin: 0.5rem 0px;
+                    height: 5rem;
+                }
+                .btn-enviar {
+                    width: auto;
+                    background-color: $azul-oscuro;
+                    border: none;
+                    color: $blanco;
+                    font-weight: bold;
+                    padding: 0px;
+                }
+            }
+        }
+        }
+        
+}
+
+@media (max-width: $celular) {
+    .cont-main-contacto {
+        height: 100%;
+        .cont-contacto-principal {
+            height: 100%;
+            .cont-contacto {
+                width: 100%;
+                display: block;
+                .cont-info-contacto {
+                    padding-bottom: 1rem;
+                    p {
+                        display: none;
+                    }
+                }
+                .cont-formulario-contacto {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $tablet) and (min-width: $celular) {
+    .cont-main-contacto{
+        .cont-contacto-principal {
+            .cont-contacto {
+                flex-direction: column;
+            }
+        }
+    }
+}

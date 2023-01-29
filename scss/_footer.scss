@@ -1,0 +1,72 @@
+.cont-footer {
+    background-color: $negro;
+    .contenido-footer {
+        @include flex-d(row);
+        justify-content: space-evenly;
+        .titulo-footer {
+            padding: 1rem;
+            a {
+                @include fuente($blanco,2rem);
+            }
+        } 
+        .titulo-footer:hover {
+            a {
+                color: $gris-footer;
+            }
+        }
+
+        .email-footer,.instagram-footer,.whatsapp-footer {
+            @include flex-d(row);
+            align-items: center;
+            p {
+                @include fuente($gris-footer,0.7rem); 
+            }
+        }
+        .whatsapp-footer:hover {
+            a {
+                svg {
+                    stroke:$gris-footer;
+                }
+            } 
+        }
+    }
+
+
+    .cont-copy-footer {
+        border-top: 1.5px solid $blanco;
+        padding: 1rem;
+        p {
+            @include fuente($blanco,0.7rem);
+            text-align: center;
+            span {
+                color: $gris-footer;
+            }
+        }
+    }
+}
+
+@media (max-width: $celular) {
+    .cont-footer {
+        @include flex-d(column);
+        align-items: center;
+        .contenido-footer {
+            @include flex-d(column);
+            .instagram-footer {
+                padding-bottom:1rem;
+            }
+            .titulo-footer {
+                text-align: center;
+            }
+            .whatsapp-footer {
+                position: fixed;
+                right: 1.2rem;
+                bottom: 2.5rem;
+                a {
+                    svg {
+                        stroke:green; 
+                    }
+                }  
+            }
+        }
+    }
+}

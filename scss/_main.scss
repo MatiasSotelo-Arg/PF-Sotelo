@@ -1,0 +1,154 @@
+.cont-main {
+    @include flex-d(column);
+    align-items: center;
+    .cont-banner {  
+        @include flex-d(column);
+        align-items: center;
+        justify-content: center;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/imagenes/background/Banner-principal-pc.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 80vh;
+        width: 70vw;
+        p {
+            @include fuente ($blanco, 3rem);
+            text-align: center;
+            span {
+                background-color: $gris-claro;
+                color: $azul-oscuro;
+                padding: 0px 1rem;
+            }
+        }
+    }
+    .cont-informacion {
+        @include flex-d(row);
+        margin: 2rem 0px 4rem 0px;
+        text-align: center;
+        color: $blanco;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url(../assets/imagenes/background/background-info.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        .card-info {
+            padding: 2rem 3rem;
+            svg {
+                width: 4rem;
+                height: 4rem;
+            }
+        }
+        .card-info__border {
+            @extend .card-info;
+            border-left: 2px solid $blanco;
+            border-right: 2px solid $blanco;
+        }
+    }  
+    .cont-tienda {
+        @include alto-ancho(50vh, 70vw);
+        @include flex-d(column);
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 4rem;
+        .contenido-tienda {
+            background: linear-gradient(to right, $azul-oscuro, #08233b);
+            @include flex-d(row);
+            justify-content: space-evenly;
+            align-items: center;
+            @include alto-ancho(100%,100%);
+            .titulo-tienda {
+                .btn-tienda {
+                    h2 {
+                        @include fuente($blanco,5rem);
+                    }
+                }
+            }
+            .cont-img-tienda {
+                @include grid-template(2,2,0rem);
+                padding: 1.5rem;
+                height: 100%;
+                .card-productos {
+                    .card-img {
+                        @include alto-ancho(12.5rem, 12.5rem);
+                        img {
+                            @include alto-ancho(100%,100%);
+                            
+                        }
+                    }
+                }
+             }
+        }
+        .btn {
+            @include fuente($blanco, 1rem);
+            background-color: $azul-oscuro;
+            margin: 1rem;
+            padding: 1rem;
+        }
+        .btn:hover {
+            color: $gris-claro;
+        }
+    }  
+}
+
+@media (max-width: $celular) {
+    .cont-main {
+        .cont-banner {
+            background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/imagenes/background/banner-principal-cel.jpg);
+            width: 100vw;
+            height: 95vh;
+            p {
+               font-size: 2.2rem; 
+            }
+        }
+        .cont-informacion {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url(../assets/imagenes/background/background-info-cel.jpg);
+            flex-direction: column;
+            width: 100vw;
+            border-radius: 0px;
+            .card-info {
+                padding: 2rem 1rem; 
+                svg {
+                    width: 3rem;
+                    height: 3rem;
+                }
+            }
+            .card-info__border {
+                border-top:2px solid $blanco;
+                border-bottom:2px solid $blanco;
+                border-left: none;
+                border-right: none;
+            }
+        }
+        .cont-tienda {
+            @include alto-ancho (50vh, 100vw);
+            .contenido-tienda {
+                flex-direction: column;
+                .titulo-tienda {
+                    .btn-tienda {
+                        h2 {
+                            font-size: 4rem;
+                        }
+                    }
+                }
+                .cont-img-tienda {
+                    display: none;
+                }
+            }
+            .btn {
+                margin-top: -4rem;
+                background-color: $azul-claro;
+                border-radius: 5px;
+            }
+        }
+    }
+}
+
+@media (max-width: $tablet) {
+    .cont-main {
+        width: 100%;
+        .cont-tienda {
+            width: 100%;
+            .contenido-tienda {
+                width: 100%;
+            }
+        }
+    }
+}

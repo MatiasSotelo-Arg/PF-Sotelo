@@ -1,0 +1,81 @@
+.cont-main-registro {
+    height: 100%;
+    .titulo-catalogo {
+        width: 100vw;
+        h2 {
+            text-align: center;
+            background-color: $azul-oscuro;
+            @include fuente($blanco, 2rem);
+            padding: 0.5rem;
+        }
+    }
+    .cont-registro-principal {
+        @include flex-d(column);
+        @include align-justify(center,center);
+        height: 100%;
+        color: $blanco;
+        .cont-formulario-registro {
+            background-color: $azul-oscuro;
+            box-shadow: 0px 3px 5px 1px #8888888a;
+            border-radius: 1rem;
+            padding: 3rem;
+            @include flex-d(column);
+            width: 30%;
+            .usuario,.contrasena,.email {
+                @include flex-d(column);
+                width: 100%;
+                padding: 0.5rem 0px;
+                input {
+                    height: 2.2rem;
+                    border: none;
+                }
+                label {
+                    padding-bottom: 10px;
+                }
+            }
+            .ingresar {
+                @include flex-d(row);
+                align-items: center;
+                justify-content: center;
+                margin: 1.5rem 0px 1rem 0px;
+
+                button {
+                    display: flex;
+                    align-items: center;
+                    background-color: $azul-claro;
+                    border: none;
+                    color: $blanco;
+                    padding: 0.4rem;
+                }
+
+            }
+            .registro {
+                text-align: center;
+                text-decoration: underline;
+                a {
+                    color: $blanco;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $celular) {
+    .cont-main-registro {
+        .cont-registro-principal {
+            .cont-formulario-registro {    
+                width: 90%;
+            }
+        }
+    }
+}
+
+@media (max-width: $tablet) and (min-width: $celular) {
+    .cont-main-registro {
+        .cont-registro-principal {
+            .cont-formulario-registro {    
+                width: 70%;
+            }
+        }
+    }
+}

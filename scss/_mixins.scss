@@ -1,0 +1,29 @@
+@mixin flex-d ($direction) { 
+    display: flex;
+    flex-direction: $direction;
+}
+
+@mixin fuente ($color, $tamanio) {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: $color;
+    font-size: $tamanio;
+}
+
+@mixin grid-template ($filas, $columnas, $gap) {
+    display: grid;
+    grid-template-rows:repeat($filas, 1fr);
+    grid-template-columns:repeat($columnas, 1fr);
+    gap: $gap;
+}
+
+@mixin alto-ancho ($alto, $ancho) {
+    height: $alto;
+    width: $ancho;
+}
+
+@mixin align-justify ($align, $justify) {
+    align-items: $align;
+    justify-content: $justify;
+}
+

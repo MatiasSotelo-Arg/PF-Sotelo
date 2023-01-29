@@ -1,0 +1,163 @@
+.cont-main-catalogo {
+    @include flex-d(column);
+    .titulo-catalogo {
+        width: 100vw;
+        h2 {
+            text-align: center;
+            background-color: $azul-oscuro;
+            @include fuente($blanco, 2rem);
+            padding: 0.5rem;
+        }
+    }
+
+    .cont-catalogo {
+        overflow-y: hidden;
+        @include flex-d(row);
+        @include align-justify(top,center);
+        .cont-marcas {
+            margin-top: 3rem;
+            padding: 2rem;
+            border: 1px solid gray;
+            height: 30vh;
+            width: 15vw;
+            h3 {
+                @include fuente($azul-oscuro, 2rem);
+                margin-bottom: 1rem;
+                border-bottom: 1px solid $azul-claro;
+                text-align: center
+            }
+            a {
+                @include fuente($azul-claro, 1.2rem);
+                padding: 1rem;
+            }
+        }
+        .cont-productos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            padding: 2rem;
+            .card-producto {
+                @include flex-d(column);
+                align-items: center;
+                position: relative;
+                margin: 1rem;
+                .card-cont-img {
+                    figure {
+                        position: relative;
+                        @include alto-ancho(17rem, 17rem);
+                        overflow: hidden;
+                        
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            transition: 500ms ease-out;
+                        }
+                        img:hover {
+                            transform: scale(1.1);
+                        }
+                    }
+                }
+                .cont-card-info {
+                    @include flex-d(column);
+                    align-items: center;
+                    .card-info {
+                        .card-titulo {
+                            font-size: 1.3rem;
+                            color: $gris-titulo;
+                        }
+                        .card-precio {
+                            @include flex-d(row);
+                            .precio,.precio-descuento {
+                                padding:0.3rem 0rem ;
+                            }
+                            .precio {
+                                text-decoration: line-through;
+                                color: $azul-claro;
+                                padding-right:0.3rem;
+                            }
+                        }
+                        .cont-descuento {
+                            display: flex;
+                            align-items: center;
+                            position: absolute;
+                            top: 1.5rem;
+                            right: 0rem;
+                            background-color: $azul-claro;
+                            padding: 0.5rem;
+                            color: $negro;
+                            font-weight: bold;
+                            color: $blanco;
+                            border-radius: 35px;
+                            height: 3rem;
+                        }
+                    }
+                    .cont-btn {
+                        overflow: hidden; 
+                        input {
+                            padding: 0.5rem;
+                            background-color: $azul-oscuro;
+                            border: none;
+                            color: $blanco;
+                            text-transform: uppercase;
+                            font-weight: bold;     
+                        }
+                        input:hover {
+                            cursor: pointer;
+                            color: $gris-claro;
+                        }
+                    }
+                }
+                
+                
+            }
+        }
+    }
+}
+
+@media (max-width: $celular) {
+    .cont-main-catalogo {
+        .cont-catalogo {
+            flex-direction: column;
+            .cont-marcas {
+                width: 100vw;
+                height: 100%;
+            }
+            .cont-productos {
+                grid-template-columns: 1fr;
+                padding: 0px;
+                .card-producto {
+                    .card-cont-img {
+                        figure {
+                            @include alto-ancho(20rem, 20rem);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $tablet) and (min-width: $celular) {
+    .cont-main-catalogo {
+        width: 100%;
+        .cont-catalogo {
+            flex-direction: column;
+            .cont-marcas {
+                width: 100%;
+            }
+            .cont-productos {
+                grid-template-columns: repeat(2,1fr);
+                padding: 0px;
+                justify-content: center;
+                margin-right: 2rem;
+                .card-producto {
+                    margin: 0px;
+                    .card-cont-img {
+                        figure {
+                            @include alto-ancho(18rem, 18rem);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
